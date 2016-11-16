@@ -1,0 +1,14 @@
+{
+  "name": "ffucthe",
+  "version": "1.0.0",
+  "description": "charity website",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "genuine-charity-team",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
