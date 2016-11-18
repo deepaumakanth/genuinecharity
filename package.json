@@ -1,7 +1,7 @@
 {
-  "name": "citenet",
+  "name": "ffutche",
   "version": "0.0.1",
-  "description": "A research paper citation graph network",
+  "description": "A charity foundation",
   "dependencies": {
     "express": "latest",
     "morgan": "latest",
