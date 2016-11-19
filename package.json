@@ -1,14 +1,28 @@
 {
+
   "name": "ffucthe",
   "version": "1.0.0",
   "description": "charity website",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "test": "echo \"Error: no test specified\" && exit 1"},
   "author": "genuine-charity-team",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "morgan": "latest",
+    "compression": "latest",
+    "body-parser": "latest",
+    "method-override": "latest",
+    "ejs": "latest",
+    "express-session": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "connect-flash": "latest",
+    "bcryptjs": "latest",
+    "sequelize": "latest",
+    "mysql": "latest"
   }
+  
+ 
 }
