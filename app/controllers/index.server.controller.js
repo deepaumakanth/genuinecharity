@@ -17,3 +17,11 @@ exports.healthcare = function(req, res) {
     });
 
 };
+
+exports.contactus = function(req, res) {
+    res.render('contactus', {
+        title: "Ffutche Foundation",
+        user: JSON.stringify(req.user)
+    });
+
+};

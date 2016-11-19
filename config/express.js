@@ -45,6 +45,8 @@ module.exports = function () {
 
     require('../app/routes/index.server.route.js').home(app);
     require('../app/routes/index.server.route.js').healthcare(app);
+    require('../app/routes/index.server.route.js').contactus(app);
+
 
     app.use(express.static('./public'));
 

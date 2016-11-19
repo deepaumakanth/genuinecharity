@@ -84,6 +84,21 @@
 .social-login-more {
     width: 45%;
 }
+
+.jumbotron {
+background: #264d00;
+color: #000;
+border-radius: 0px;
+}
+.jumbotron-sm { padding-top: 24px;
+padding-bottom: 24px; }
+.jumbotron small {
+color: #000;
+}
+.h1 small {
+font-size: 24px;
+}
+
 #social-google {
     background-color: #da573b;
     border-color: #be5238;
@@ -127,3 +142,4 @@
     border-color: #3b5a7c;
     line-height: normal;
 }
+
