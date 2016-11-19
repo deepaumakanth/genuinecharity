@@ -107,27 +107,31 @@
                                 <button type="button" class="btn btn-info">Search</button>
                             </div>
                         </div>
-                        <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
-                               <div class="row">
-                                 <ul class="nav navbar-nav">
-                                    <div class="col-md-3"> 
-                                        <li class="active text-center"><a href="/">Home<span class="sr-only">(current)</span></a></li>
-                                    </div>
-                                      <div class="col-md-3"> 
-                                        <li><a href="/healthcare">HealthCare</a></li>
-                                     </div>
-                                      <div class="col-md-3"> 
+                        <div>
+                        <div>
+                       <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+                               <div class="navbar-inner">
+                                 <div class="nav navbar-inner">
+                                    <li class="active navbar-text"><a href="/"><strong>Home</strong><span class="sr-only">(current)</span></a></li>
+                                     <li class="dropdown"><a href="/healthcare" class="navbar-text dropdown-toggle" data-toggle="dropdown">
+                                        HealthCare<span class="caret"></span></a>
+                                               <ul class="dropdown-menu">
+                                                    <li><a href="/healthcare">Events</a></li>
+                                                    <li><a href="#"></a></li>
+                                                </ul>
+                                       
+                                         </li>
 
-      <li><a href="/education">Education</a></li>
-  </div>
-                                        <div class="col-md-3"> 
-
-      <li><a href="/development">Development</a></li>
-  </div>
-
-    </ul>
+                                             <li class="dropdown"><a href="/education" class="navbar-text dropdown-toggle" data-toggle="dropdown">
+                                                Education<span class="caret"></span></a>
+                                                  <ul class="dropdown-menu">
+                                                    <li><a href="#">Apply Scholarship</a></li>
+                                                    <li><a href="#">Sponsor Scholarship</a></li>
+                                                </ul>
+                                         </li>
+                                              <li><a href="/development" class="navbar-text">Development</span></a></li>
+                                          </div>
                               </div>
-                        </nav>
                     </div>
                 </div>
             </div>
