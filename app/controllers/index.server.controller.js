@@ -14,3 +14,11 @@ exports.ourwork = function(req, res) {
     });
 
 };
+
+exports.aboutus = function(req, res) {
+    res.render('aboutus', {
+        title: "Ffutche Foundation",
+        user: JSON.stringify(req.user)
+    });
+
+};
