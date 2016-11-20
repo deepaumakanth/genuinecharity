@@ -12,17 +12,23 @@ exports.applyscholarship = function(req, res) {
         title: "Ffutche Foundation",
         user: JSON.stringify(req.user)
     });
+};
 
 exports.addsponsor = function(req, res) {
-	var scholarship = {
-     name: req.params.name,
-     amount: req.params.amount
-    
- };
-    res.render('addsponsorconfirmation', {
-        title: "Ffutche Foundation",
-        user: JSON.stringify(req.user)
-    });
 
-    addsponsor
+	var scholarship = {
+      name: req.params.name,
+      amount: req.params.amount
+    
+  };
+  console.log("dpa:"+scholarship);
+
+    res.render('addsponsorconfirmation', {
+     title: "Ffutche Foundation",
+        user: JSON.stringify(req.user)
+     });
+
+    
+
 };
+	

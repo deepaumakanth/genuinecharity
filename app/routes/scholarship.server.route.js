@@ -8,7 +8,7 @@ module.exports = function(app){
       .get(sponsorshipcontroller.applyscholarship);
 
 app.route('/addsponsor')
-      .get(sponsorshipcontroller.addsponsor);
+      .post(sponsorshipcontroller.addsponsor);
 
 };
 
