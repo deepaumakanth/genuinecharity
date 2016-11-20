@@ -1,6 +1,9 @@
+var sponsorshipcontroller = require('../controllers/scholarship.server.controller');
 
+module.exports = function(app){
+  app.route('/sponsorscholarship')
+      .get(sponsorshipcontroller.sponsorscholarship);
 
-exports.sponsorscholarship =  function(app) {
-  app.get('/sponsorscholarship','sponsorScholarshipForm.html');
-   
-  };
+  app.route('/applyscholarship')
+      .get(sponsorshipcontroller.applyscholarship);
+};

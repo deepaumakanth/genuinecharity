@@ -5,6 +5,10 @@ p.comment{
 	float:left;
 }
 
+.nav-pills.homepage > li {
+	margin-left: 125px!important;
+}
+
 .vcenter {
 	display: inline-block;
 	vertical-align: middle;
