@@ -32,3 +32,25 @@ $('#myCarousel').bind('slid.bs.carousel', function (e) {
         $("#narrative_body").text(narrative_body);
     }
 });
+
+function signinSubmit()
+{
+    $.ajax({
+        type: 'POST',
+        url: '/signin',
+        data: {
+            email:$("#emailsignup").val(),
+            password:$("#passwordsignup").val(),
+        },
+        success: function(data){
+            console.log("Inside signin success");
+            alertify.notify('Signin successfull!','success',3,function(){
+                window.location.href = '/'
+            });
+        },
+        error: function(xhr, textStatus, error){
+            console.log("Error in signup "+xhr.responseJSON);
+            alertify.error('Signin Error: '+xhr.responseJSON);
+        }
+    });
+}

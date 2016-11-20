@@ -48,6 +48,9 @@ module.exports = function () {
     require('../app/routes/healthcare.server.route.js')(app);
     require('../app/routes/scholarship.server.route.js')(app);
     require('../app/routes/galleries.server.route.js')(app);
+    require('../app/routes/signup.server.route.js')(app);
+    require('../app/routes/signin.server.route.js')(app);
+    require('../app/routes/signout.server.route.js')(app);
 
 
 

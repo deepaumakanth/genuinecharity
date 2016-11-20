@@ -5,7 +5,8 @@
 exports.healthcare = function(req, res) {
     res.render('healthcare', {
         title: "Ffutche Foundation",
-        user: JSON.stringify(req.user)
+        userFirstName: req.user ? req.user.firstname : '',
+        userLastName: req.user ? req.user.lastname : ''
     });
 
 };

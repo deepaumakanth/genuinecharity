@@ -9,16 +9,15 @@ module.exports = function(){
 
     passport.serializeUser(function(person, done){
         console.log("serial person == "+JSON.stringify(person));
-        console.log(person.email)
-        done(null, person.email);
+        done(null, person.email_id);
     });
 
-    passport.deserializeUser(function(email, done){
-        console.log('deserial email == '+email);
-        var query = "select email, firstname, lastname, role_id from users where email = :email";
-        sequelize.query(query, { replacements: {email: email }, type: sequelize.QueryTypes.SELECT})
+    passport.deserializeUser(function(email_id, done){
+        console.log('deserial email == '+email_id);
+        var query = "select email_id, firstname, lastname from users where email_id = :email_id";
+        sequelize.query(query, { replacements: {email_id: email_id }, type: sequelize.QueryTypes.SELECT})
             .then(function(person) {
-                done(null,person);
+                done(null,person[0]);
             })
 
     });

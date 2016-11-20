@@ -130,7 +130,7 @@
         </div>
     </div>
 </nav>
-                         
+
 <div class="container-fluid" style="padding-bottom:15px">
     <div class="row">
         <div class="col-md-offset-4">
@@ -147,7 +147,7 @@
                         <li><a href="#"></a></li>
                     </ul>
                 </li>
-                <li role="presentation" class="dropdown active">
+                <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         Education <span class="caret"></span>
                     </a>
@@ -171,49 +171,64 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-offset-4 col-md-4">
+        <div class="col-md-offset-3 col-md-6">
             <div class="panel panel-default" style="border-radius: 0px">
                 <div class="panel panel-heading">
                     <div class="panel-title">
-                        <h2>Sponsor a Scholarship</h2>
-                        <p>Use the form below to add a scholarship</p>
+                        <h2>Join Us</h2>
+                        <p>Use the form below to get started</p>
                     </div>
                 </div>
                 <div class="panel panel-body">
-                    <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" />
+                            <label for="email">Email ID</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email id" required/>
                         </div>
                         <div class="form-group">
-                            <label for="amount">Amount:</label>
-                            <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter your Amount" />
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required/>
                         </div>
                         <div class="form-group">
-                            <label for="prerequiste">Pre-requiste:</label>
-                            <input type="text" class="form-control" id="prerequiste" name="prerequiste" placeholder="Enter your pre-requiste" />
+                            <label for="firstname">Firstname</label>
+                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your first name" required/>
                         </div>
-
                         <div class="form-group">
-                            <label for="expiry">Expiry:</label>
-                            <input type="date" class="form-control" id="expirty" name="expiry" placeholder="Enter expiry date"/>
+                            <label for="lastname">Lastname</label>
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name" required/>
                         </div>
 
                         <div class="form-group">
-                            <label for="expiry">Type of Scholarship:</label>
-                            <select class="form-control" id="type" placeholder="Enter type of scholarship">
-                                <option>Elementry School</option>
-                                <option>Primary School</option>
-                                <option>Middle School</option>
-                                <option>High School</option>
-                                <option>Undergraduate</option>
-                                <option>Gradutae</option>
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Phone</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" pattern='\d{3}[\-]\d{3}[\-]\d{4}' placeholder='Phone Number (Format: xxx-xxx-xxxx)' required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select class="form-control" id="gender" name="gender" placeholder="Enter gender">
+                                <option>male</option>
+                                <option>female</option>
                             </select>
                         </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Create Scholarship</button>
+                        <div class="form-group">
+                            <label for="expiry">Marital Status</label>
+                            <select class="form-control" id="marital_status" name="marital_status" placeholder="Enter marital status">
+                                <option>unmarried</option>
+                                <option>married</option>
+                            </select>
                         </div>
-                    </form>
+                        <div class="form-group">
+                            <label for="address">Occupation</label>
+                            <input type="text" class="form-control" id="occupation" name="occupation" placeholder='Enter your occupation' required/>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" onclick="signupSubmit();" class="btn btn-primary">Submit</button>
+                        </div>
                 </div>
             </div>
         </div>
@@ -316,8 +331,8 @@
 <!-- Javascript -->
 
 <script src="lib/jquery/dist/jquery.min.js"></script>
-<script src="index/index.js"></script>
 <script src="lib/alertifyjs/alertify.min.js"></script>
+<script src="signup/signup.js"></script>
 
 <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/js/jquery.backstretch.min.js"></script>
