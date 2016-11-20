@@ -6,4 +6,9 @@ module.exports = function(app){
 
   app.route('/applyscholarship')
       .get(sponsorshipcontroller.applyscholarship);
+
+app.route('/addsponsor')
+      .get(sponsorshipcontroller.addsponsor);
+
 };
+
