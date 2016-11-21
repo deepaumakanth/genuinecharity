@@ -1,16 +1,17 @@
-var sponsorshipcontroller = require('../controllers/scholarship.server.controller'),
+var scholarshipcontroller = require('../controllers/scholarship.server.controller'),
     checksignedincontroller = require('../controllers/checksignedin.server.controller');
 
 
 module.exports = function(app){
   app.route('/sponsorscholarship')
-      .get(checksignedincontroller.checksignedin,sponsorshipcontroller.sponsorscholarship);
+      .get(checksignedincontroller.checksignedin,scholarshipcontroller.sponsorscholarship);
 
   app.route('/applyscholarship')
-      .get(checksignedincontroller.checksignedin,sponsorshipcontroller.applyscholarship);
+      .get(checksignedincontroller.checksignedin,scholarshipcontroller.retrieve_valid_scholarships,scholarshipcontroller.renderapplyscholarship)
+      .post(scholarshipcontroller.applyscholarship);
 
 app.route('/addsponsor')
-      .post(sponsorshipcontroller.addsponsor);
+      .post(scholarshipcontroller.addsponsor);
 
 };
 
