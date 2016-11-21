@@ -34,7 +34,7 @@ exports.addsponsor = function(req, res) {
                 return res.status(401).send({ error:err })
             });
 
-            res.render('applyscholarship', {
+        res.render('applyscholarship', {
         title: "Ffutche Foundation",
         userFirstName: req.user ? req.user.firstname : '',
         userLastName: req.user ? req.user.lastname : ''
