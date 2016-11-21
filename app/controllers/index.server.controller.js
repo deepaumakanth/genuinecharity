@@ -3,7 +3,9 @@ exports.renderHome = function(req, res) {
     res.render('index', {
         title: "Ffutche Foundation",
         userFirstName: req.user ? req.user.firstname : '',
-        userLastName: req.user ? req.user.lastname : ''
+        userLastName: req.user ? req.user.lastname : '',
+        signedIn: req.session.signedIn ? req.session.signedIn : '',
+        attemptedURL: req.session.attemptedURL ? req.session.attemptedURL : ''
     });
 };
 

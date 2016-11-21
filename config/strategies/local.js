@@ -35,7 +35,9 @@ module.exports = function() {
 
             }).catch(function(err){
                 console.log("signup user error in query"+JSON.stringify(err));
-                return res.status(401).send({ error:err })
+                return done(null, false, {
+                    message: 'Unknown user'
+                });
             });
     }));
 };

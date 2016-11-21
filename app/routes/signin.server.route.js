@@ -18,6 +18,7 @@ module.exports = function(app) {
                 if (err) {
                     return next(err);
                 }
+                req.session.signedIn = "true";
                 return res.status(200).send({success:"success"});
             });
         })(req, res, next);

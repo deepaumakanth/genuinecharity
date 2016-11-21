@@ -7,6 +7,11 @@ $(document).ready(function(){
     var body = "Donald John Trump was elected the 45th president of the United States on Tuesday in a stunning culmination of an explosive, populist and polarizing campaign that took relentless aim at the institutions and long-held ideals of American democracy."
         +"The surprise outcome, defying late polls that showed Hillary Clinton with a modest but persistent edge, threatened convulsions throughout the country and the world, where skeptics had watched with alarm as Mr. Trump’s unvarnished overtures to disillusioned voters took hold."
     $("#narrative_body").text(body);
+
+    if(signedIn == "false")
+    {
+        alertify.error("Please sign in or sign up to navigate to "+attemptedURL);
+    }
 })
 $('#myCarousel').bind('slid.bs.carousel', function (e) {
     var slide = $(this).find('.item.active')[0]
