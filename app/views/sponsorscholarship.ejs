@@ -181,7 +181,7 @@
                     </div>
                 </div>
                 <div class="panel panel-body">
-                    <form action="/addsponsor" method="post" enctype="multipart/form-data">
+                    <form action="/addsponsor" method="post">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" />
@@ -191,8 +191,8 @@
                             <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter your Amount" />
                         </div>
                         <div class="form-group">
-                            <label for="prerequiste">Pre-requiste:</label>
-                            <input type="text" class="form-control" id="prerequiste" name="prerequiste" placeholder="Enter your pre-requiste" />
+                            <label for="prerequisite">Pre-requiste:</label>
+                            <input type="text" class="form-control" id="prerequisite" name="prerequisite" placeholder="Enter your pre-requiste" />
                         </div>
 
                         <div class="form-group">
@@ -202,13 +202,13 @@
 
                         <div class="form-group">
                             <label for="type">Type of Scholarship:</label>
-                            <select class="form-control" id="type" placeholder="Enter type of scholarship">
+                            <select class="form-control" id="type"  name="type" placeholder="Enter type of scholarship">
                                 <option>Elementry School</option>
                                 <option>Primary School</option>
                                 <option>Middle School</option>
                                 <option>High School</option>
                                 <option>Undergraduate</option>
-                                <option>Gradutae</option>
+                                <option>Graduate</option>
                             </select>
                         </div>
                         <div class="text-center">
