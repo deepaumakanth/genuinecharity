@@ -130,7 +130,7 @@
         </div>
     </div>
 </nav>
-                         
+
 <div class="container-fluid" style="padding-bottom:15px">
     <div class="row">
         <div class="col-md-offset-4">
@@ -174,53 +174,50 @@
 
 <div class="container-fluid">
     <div class="row">
-
-        <div class="col-md-offset-4 col-md-4">
+        <div class="col-md-offset-3 col-md-6">
+            <div class="panel panel-card">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h3>Applied Scholarships</h3>
+                    </div>
+                </div>
+            </div>
+            <% for(var i=0; i < appliedScholarships.length; i++) { %>
             <div class="panel panel-default" style="border-radius: 0px">
                 <div class="panel panel-heading">
                     <div class="panel-title">
-                        <h2>Sponsor a Scholarship</h2>
-                        <p>Use the form below to add a scholarship</p>
+                        <strong>
+                            <%= appliedScholarships[i].name %>
+                        </strong>
                     </div>
                 </div>
                 <div class="panel panel-body">
-                    <form action="/addsponsor" method="post">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" />
-                        </div>
-                        <div class="form-group">
-                            <label for="amount">Amount:</label>
-                            <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter your Amount" />
-                        </div>
-                        <div class="form-group">
-                            <label for="prerequisite">Pre-requiste:</label>
-                            <input type="text" class="form-control" id="prerequisite" name="prerequisite" placeholder="Enter your pre-requiste" />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="expiry">Expiry:</label>
-                            <input type="date" class="form-control" id="expiry" name="expiry" placeholder="Enter expiry date"/>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="type">Type of Scholarship:</label>
-                            <select class="form-control" id="type"  name="type" placeholder="Enter type of scholarship">
-                                <option>Elementry School</option>
-                                <option>Primary School</option>
-                                <option>Middle School</option>
-                                <option>High School</option>
-                                <option>Undergraduate</option>
-                                <option>Graduate</option>
-                            </select>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Create Scholarship</button>
-                        </div>
-                    </form>
+                    <div id="scholarship_id" style="display:none"><%= appliedScholarships[i].scholarship_id%></div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <tr>
+                                <td><strong>Prerequisite</strong></td>
+                                <td> <%= appliedScholarships[i].prerequisite %></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Type</strong></td>
+                                <td> <%= appliedScholarships[i].type %></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Amount</strong></td>
+                                <td> $<%= appliedScholarships[i].amount %></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Expires</strong> </td>
+                                <td> <%= appliedScholarships[i].expiry %></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
+            <% } %>
         </div>
+
     </div>
 </div>
 <div class="container-fluid navbar-bottom">
@@ -290,6 +287,7 @@
         </div>
     </div>
 </div>
+
 <div id="signinModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -317,10 +315,12 @@
 
     </div>
 </div>
+
 <!-- Javascript -->
 
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="index/index.js"></script>
+<script src="applyscholarship/applyscholarship.js"></script>
 <script src="lib/alertifyjs/alertify.min.js"></script>
 
 <script src="lib/bootstrap/dist/js/bootstrap.js"></script>

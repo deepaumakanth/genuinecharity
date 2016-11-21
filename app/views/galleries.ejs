@@ -153,6 +153,9 @@
                         Education <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
+                        <% if ( userFirstName ) { %>
+                        <li><a href="/appliedscholarships">Applied Scholarships</a></li>
+                        <% } %>
                         <li><a href="/applyscholarship">Apply Scholarship</a></li>
                         <li><a href="/sponsorscholarship">Sponsor Scholarship</a></li>
                     </ul>

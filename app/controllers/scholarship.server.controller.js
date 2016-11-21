@@ -8,6 +8,15 @@ exports.sponsorscholarship = function(req, res) {
     });
 };
 
+exports.renderAppliedScholarships = function(req, res) {
+    res.render('appliedscholarships', {
+        title: "Ffutche Foundation",
+        userFirstName: req.user ? req.user.firstname : '',
+        userLastName: req.user ? req.user.lastname : '',
+        appliedScholarships: req.appliedScholarships ? req.appliedScholarships.appliedScholarships : ''
+    });
+};
+
 exports.renderapplyscholarship = function(req, res) {
     res.render('applyscholarship', {
         title: "Ffutche Foundation",
@@ -43,8 +52,8 @@ exports.addsponsor = function(req, res,next) {
 };
 
 exports.retrieve_valid_scholarships = function(req,res,next){
-    var query = "select scholarship_id,name,amount,prerequisite,expiry,type from scholarships where expiry >= :date";
-    sequelize.query(query, { replacements: {date: (new Date()).toISOString().substring(0, 10) },type: sequelize.QueryTypes.SELECT})
+    var query = "select * from scholarships where scholarship_id not in (select scholarship_id from user_applies_scholarship where email_id = :email_id) and expiry >= :date";
+    sequelize.query(query, { replacements: {email_id: req.user.email_id,date: (new Date()).toISOString().substring(0, 10) },type: sequelize.QueryTypes.SELECT})
         .then(function(scholarships) {
             console.log("scholarship retrieval successful"+JSON.stringify(scholarships));
             req.scholarships = {"scholarships":scholarships};
@@ -69,7 +78,17 @@ exports.applyscholarship = function(req, res){
                 console.log("apply scholarship error in query"+JSON.stringify(err));
                 return res.status(401).send({ error:err })
             });
+};
 
-
-
+exports.retrieve_applied_scholarships = function(req,res,next){
+    var query = "select s.name,s.amount,s.prerequisite,s.expiry,s.type from scholarships as s inner join user_applies_scholarship as u on s.scholarship_id = u.scholarship_id where u.email_id = :email_id";
+    sequelize.query(query, { replacements: {email_id: req.user.email_id },type: sequelize.QueryTypes.SELECT})
+        .then(function(appliedScholarships) {
+            console.log("appliedScholarships retrieval successful"+JSON.stringify(appliedScholarships));
+            req.appliedScholarships = {"appliedScholarships":appliedScholarships};
+            next();
+        }).catch(function(err){
+            console.log("appliedScholarships retrieval error"+JSON.stringify(err));
+            next();
+        });
 };

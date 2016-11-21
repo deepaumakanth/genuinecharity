@@ -152,6 +152,9 @@
                         Education <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
+                        <% if ( userFirstName ) { %>
+                        <li><a href="/appliedscholarships">Applied Scholarships</a></li>
+                        <% } %>
                         <li><a href="/applyscholarship">Apply Scholarship</a></li>
                         <li><a href="/sponsorscholarship">Sponsor Scholarship</a></li>
                     </ul>
@@ -172,6 +175,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
+            <div class="panel panel-card">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h3>Applicable Scholarships</h3>
+                    </div>
+                </div>
+            </div>
             <% for(var i=0; i < scholarships.length; i++) { %>
             <div class="panel panel-default" style="border-radius: 0px">
                 <div class="panel panel-heading">
