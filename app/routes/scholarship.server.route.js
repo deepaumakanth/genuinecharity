@@ -11,7 +11,7 @@ module.exports = function(app){
       .post(scholarshipcontroller.applyscholarship);
 
 app.route('/addsponsor')
-      .post(scholarshipcontroller.addsponsor);
+      .post(scholarshipcontroller.addsponsor,scholarshipcontroller.retrieve_valid_scholarships,scholarshipcontroller.renderapplyscholarship);
 
 };
 
