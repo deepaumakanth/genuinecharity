@@ -7,8 +7,8 @@ var sequelize = require("../../config/sequelize").getSequelize;
 exports.rendersignup = function(req, res) {
     res.render('signup', {
         title: "Ffutche Foundation",
-        user: JSON.stringify(req.user),
-        messages: req.flash('error')
+        userFirstName: req.user ? req.user.firstname : '',
+        userLastName: req.user ? req.user.lastname : ''
     });
 
 };
