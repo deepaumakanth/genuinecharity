@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="css/home_login.css">
+    <link rel="stylesheet" href="lib/alertifyjs/css/alertify.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -85,27 +86,42 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3">
+                                <% if ( userFirstName ) { %>
+                                <p class="text-center" style="color:#19b9e7">Hello <%= userFirstName %> <%= userLastName %> !</p>
+                                <% } else { %>
                                 <a href="/register">
                                     <p class="text-center">
                                         Join Us
                                     </p>
                                 </a>
+                                <% } %>
                             </div>
                             <div class="col-md-3">
-                                <a href="/signin">
+                                <% if ( userFirstName ) { %>
+                                <a href="/signout">
+                                    <p class="text-center">
+                                        Sign Out
+                                    </p>
+                                </a>
+                                <% } else { %>
+                                <a style="cursor: pointer; cursor: hand;" data-toggle="modal" data-target="#signinModal">
                                     <p class="text-center">
                                         Sign In
                                     </p>
                                 </a>
+                                <% } %>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <input type="text">
+
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <button type="button" class="btn btn-info">Search</button>
                             </div>
+                        </div>
+                        <div>
 
                         </div>
                     </div>
@@ -114,7 +130,7 @@
         </div>
     </div>
 </nav>
-                         
+
 <div class="container-fluid" style="padding-bottom:15px">
     <div class="row">
         <div class="col-md-offset-4">
@@ -131,11 +147,14 @@
                         <li><a href="#"></a></li>
                     </ul>
                 </li>
-                <li role="presentation" class="dropdown active">
+                <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         Education <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
+                        <% if ( userFirstName ) { %>
+                        <li><a href="/appliedscholarships">Applied Scholarships</a></li>
+                        <% } %>
                         <li><a href="/applyscholarship">Apply Scholarship</a></li>
                         <li><a href="/sponsorscholarship">Sponsor Scholarship</a></li>
                     </ul>
@@ -152,59 +171,22 @@
         </div>
     </div>
 </div>
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-offset-4 col-md-4"><strong>
-        Thank you for sponsoring a scholarship. Your investment is greatly appreciated to help students around the world.
-    </div>
-
-       <!--  <div class="col-md-offset-4 col-md-4">
+        <div class="col-md-offset-2 col-md-8">
             <div class="panel panel-default" style="border-radius: 0px">
                 <div class="panel panel-heading">
                     <div class="panel-title">
-                        <h2>Sponsor a Scholarship</h2>
-                        <p>Use the form below to add a scholarship</p>
+                        <h2>Sponsorship confirmed</h2>
                     </div>
                 </div>
                 <div class="panel panel-body">
-                    <form action="/addsponsor" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" />
-                        </div>
-                        <div class="form-group">
-                            <label for="amount">Amount:</label>
-                            <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter your Amount" />
-                        </div>
-                        <div class="form-group">
-                            <label for="prerequiste">Pre-requiste:</label>
-                            <input type="text" class="form-control" id="prerequiste" name="prerequiste" placeholder="Enter your pre-requiste" />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="expiry">Expiry:</label>
-                            <input type="date" class="form-control" id="expiry" name="expiry" placeholder="Enter expiry date"/>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="type">Type of Scholarship:</label>
-                            <select class="form-control" id="type" placeholder="Enter type of scholarship">
-                                <option>Elementry School</option>
-                                <option>Primary School</option>
-                                <option>Middle School</option>
-                                <option>High School</option>
-                                <option>Undergraduate</option>
-                                <option>Gradutae</option>
-                            </select>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Create Scholarship</button>
-                        </div>
-                    </form>
+                    <p>
+                        Thank you for sponsoring a scholarship. Your investment is greatly appreciated.
+                    </p>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </div>
 <div class="container-fluid navbar-bottom">
@@ -274,11 +256,38 @@
         </div>
     </div>
 </div>
+<div id="signinModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Sign In</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="emailsignup">Email ID</label>
+                    <input type="text" class="form-control" id="emailsignup" name="emailsignup" placeholder="Enter your email id" required/>
+                </div>
+                <div class="form-group">
+                    <label for="passwordsignup">Password</label>
+                    <input type="password" class="form-control" id="passwordsignup" name="passwordsignup" placeholder="Enter your password" required/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="signinSubmit()" >Submit</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 <!-- Javascript -->
 
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="index/index.js"></script>
+<script src="lib/alertifyjs/alertify.min.js"></script>
 
 <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/js/jquery.backstretch.min.js"></script>

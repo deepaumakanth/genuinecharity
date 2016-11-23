@@ -26,6 +26,14 @@ exports.renderapplyscholarship = function(req, res) {
     });
 };
 
+exports.rendersponsorconfirmation = function(req, res) {
+    res.render('addsponsorconfirmation', {
+        title: "Ffutche Foundation",
+        userFirstName: req.user ? req.user.firstname : '',
+        userLastName: req.user ? req.user.lastname : '',
+    });
+};
+
 exports.addsponsor = function(req, res,next) {
 	var name =  req.body.name,
         amount = req.body.amount,
