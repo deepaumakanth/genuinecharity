@@ -31,3 +31,13 @@ exports.setsigninSession = function(req,res){
     req.session.signedIn=undefined;
     res.status(200).send({})
 };
+exports.getinvolved = function(req, res) {
+    res.render('getinvolved', {
+        title: "Ffutche Foundation",
+        userFirstName: req.user ? req.user.firstname : '',
+        userLastName: req.user ? req.user.lastname : ''
+    });
+
+};
+
+

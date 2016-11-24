@@ -7,6 +7,7 @@ exports.home = function(app){
     app.route('/ourwork').get(index.ourwork);
     app.route('/aboutus').get(index.aboutus);
     app.route('/setsigninSession').post(index.setsigninSession);
+    app.route('/getinvolved').get(index.getinvolved);
 
 
 
