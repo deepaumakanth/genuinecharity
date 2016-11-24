@@ -10,7 +10,18 @@ $(document).ready(function(){
 
     if(signedIn == "false")
     {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Please sign in or sign up to navigate to "+attemptedURL);
+        $.ajax({
+            type: 'POST',
+            url: '/setsigninSession',
+            success: function(data){
+                console.log("Inside set signin success");
+            },
+            error: function(xhr, textStatus, error){
+                console.log('setSignin Error: '+xhr.responseJSON);
+            }
+        });
     }
 })
 $('#myCarousel').bind('slid.bs.carousel', function (e) {

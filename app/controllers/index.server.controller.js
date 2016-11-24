@@ -26,3 +26,8 @@ exports.aboutus = function(req, res) {
     });
 
 };
+
+exports.setsigninSession = function(req,res){
+    req.session.signedIn=undefined;
+    res.status(200).send({})
+};
