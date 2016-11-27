@@ -181,7 +181,45 @@
                         <h3>Applicable Scholarships</h3>
                     </div>
                 </div>
-            </div>
+
+                 </div>
+                 <label>Addition information to apply for a scholarship</label>
+                  <div class="panel panel-body">
+                                      <div class="form-group">
+                            <label for="noofchildren">No. Of children</label>
+                            <input type="noofchildren" class="form-control" id="noofchildren" name="noofchildren">
+                        </div>
+                          <div class="form-group">
+                            <label for="termination">Have you ever been terminated from school ?</label>
+                            <br><input type="checkbox" id="termination1" value="Yes"> Yes</label><br>
+                            <input type="checkbox" id="termination2" value="No"> No</label>
+
+                        </div>
+                        <label>Information about Parents:</label>
+                        <div class="form-group">
+                            <label for="parentsms">Parent's Marital Status</label>
+                            <select class="form-control" id="parentsms" name="parentsms" placeholder="Enter marital status">
+                                <option>unmarried</option>
+                                <option>married</option>
+                                <option>separated</option>
+                                <option>divorced</option>
+                                <option>widow</option>
+                            </select>
+                        </div>
+                         <div class="form-group">
+                            <label for="address">Father's Name</label>
+                            <input type="text" class="form-control" id="fathername" name="fathername" placeholder='Enter your fathers first and last name' required/>
+                        </div>
+                         <div class="form-group">
+                            <label for="address">Father's age</label>
+                            <input type="text" class="form-control" id="fatherage" name="fatherage" placeholder='Enter your fathers age' required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Phone</label>
+                            <input type="text" class="form-control" id="Phone" name="Phone"  required/>
+                        </div>
+       
+                </div>
             <% for(var i=0; i < scholarships.length; i++) { %>
             <div class="panel panel-default" style="border-radius: 0px">
                 <div class="panel panel-heading">
@@ -190,7 +228,9 @@
                             <%= scholarships[i].name %>
                         </strong>
                     </div>
+                
                 </div>
+
                 <div class="panel panel-body">
                     <div id="scholarship_id" style="display:none"><%= scholarships[i].scholarship_id%></div>
                     <div class="table-responsive">
