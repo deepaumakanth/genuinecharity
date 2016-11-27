@@ -60,13 +60,15 @@ function signinSubmit()
         },
         success: function(data){
             console.log("Inside signin success");
+            alertify.set('notifier','position', 'top-right');
             alertify.notify('Signin successfull!','success',3,function(){
                 window.location.href = '/'
             });
         },
         error: function(xhr, textStatus, error){
-            console.log("Error in signup "+xhr.responseJSON);
-            alertify.error('Signin Error: '+xhr.responseJSON);
+            console.log("Error in signup "+JSON.parse(xhr.responseText).error);
+            alertify.set('notifier','position', 'top-right');
+            alertify.error('Signin Error: '+JSON.parse(xhr.responseText).error);
         }
     });
 }

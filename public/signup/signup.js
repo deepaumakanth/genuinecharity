@@ -19,12 +19,14 @@ function signupSubmit()
         },
         success: function(data){
             console.log("Inside register success");
+            alertify.set('notifier','position', 'top-right');
             alertify.notify('Signup successfull!','success',3,function(){
                 window.location.href = '/'
             })
         },
         error: function(xhr, textStatus, error){
             console.log("Error in signup "+xhr.responseJSON.error.message);
+            alertify.set('notifier','position', 'top-right');
             alertify.error('Signup Error: '+xhr.responseJSON.error.message);
         }
     });

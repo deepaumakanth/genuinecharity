@@ -5,7 +5,7 @@ module.exports = function(app){
       .get(donatecontroller.donate);
 
  app.route('/adddonation')
-      .post(donatecontroller.adddonation);
+      .post(donatecontroller.adddonation,donatecontroller.renderDonateConfirmation);
 
 
   };

@@ -8,7 +8,7 @@ exports.donate = function(req, res) {
     });
 };
 
-exports.adddonation = function(req, res) {
+exports.adddonation = function(req, res,next) {
 	var name =  req.body.name,
         phone = req.body.phone,
         value = req.body.value,
@@ -22,11 +22,18 @@ exports.adddonation = function(req, res) {
     sequelize.query(query, { replacements: {name: name,email:email, phone: phone, value: value, contribution_type: contribution_type, quantity: quantity }})
         .then(function(success) {
            console.log("donation successful"+JSON.stringify(success));
-
-                return res.status(200).send({success:"success"});
+            next();
             }).catch(function(err){
                 console.log("scholarships could not be added"+JSON.stringify(err));
                 return res.status(401).send({ error:err })
             });
 
 };
+
+exports.renderDonateConfirmation = function(req,res){
+    res.render('donateConfirmation', {
+        title: "Ffutche Foundation",
+        userFirstName: req.user ? req.user.firstname : '',
+        userLastName: req.user ? req.user.lastname : ''
+    });
+}

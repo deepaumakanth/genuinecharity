@@ -75,9 +75,16 @@ exports.retrieve_valid_scholarships = function(req,res,next){
 exports.applyscholarship = function(req, res){
     console.log("inside applyscholarship controller"+JSON.stringify(req.body));
         var  email_id = req.user.email_id,
-            scholarship_id = req.body.scholarship_id;
-        var query = "insert into user_applies_scholarship (email_id, scholarship_id) values (:email_id, :scholarship_id)";
-        sequelize.query(query, { replacements: {email_id: email_id,scholarship_id: scholarship_id }})
+            scholarship_id = req.body.scholarship_id,
+            no_of_children = req.body.no_of_children,
+            school_termination = req.body.school_termination,
+            parent_marital_status = req.body.parent_marital_status,
+            father_name = req.body.father_name,
+            father_age = req.body.father_age,
+            phone = req.body.phone
+
+        var query = "insert into user_applies_scholarship (email_id, scholarship_id,no_of_children,school_termination,parent_marital_status,father_name,father_age,phone) values (:email_id, :scholarship_id, :no_of_children, :school_termination, :parent_marital_status, :father_name, :father_age, :phone)";
+        sequelize.query(query, { replacements: {email_id: email_id,scholarship_id: scholarship_id,no_of_children: no_of_children,school_termination: school_termination, parent_marital_status: parent_marital_status, father_name:father_name, father_age: father_age, phone: phone }})
             .then(function(success) {
                 console.log("apply scholarship successful"+JSON.stringify(success));
 
