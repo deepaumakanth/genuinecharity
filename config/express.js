@@ -51,6 +51,8 @@ module.exports = function () {
     require('../app/routes/signup.server.route.js')(app);
     require('../app/routes/signin.server.route.js')(app);
     require('../app/routes/signout.server.route.js')(app);
+     require('../app/routes/donate.server.route.js')(app);
+
 
 
 

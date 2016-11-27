@@ -81,7 +81,6 @@
                                 <h2 class="text-center">Impacting Lives</h2>
                             </div>
                             <div class="col-md-3 col-md-offset-1" style="padding-top:10px">
-                                 <a href="/donate">
                                 <button type="button" class="btn btn-info btn-lg">Donate</button>
                             </div>
                         </div>
@@ -148,7 +147,7 @@
                         <li><a href="#"></a></li>
                     </ul>
                 </li>
-                <li role="presentation" class="dropdown active">
+                <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         Education <span class="caret"></span>
                     </a>
@@ -176,92 +175,52 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <div class="panel panel-card">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <h3>Applicable Scholarships</h3>
-                    </div>
-                </div>
-
-                 </div>
-                 <label>Addition information to apply for a scholarship</label>
-                  <div class="panel panel-body">
-                                      <div class="form-group">
-                            <label for="noofchildren">No. Of children</label>
-                            <input type="noofchildren" class="form-control" id="noofchildren" name="noofchildren">
-                        </div>
-                          <div class="form-group">
-                            <label for="termination">Have you ever been terminated from school ?</label>
-                            <br><input type="checkbox" id="termination1" value="Yes"> Yes</label><br>
-                            <input type="checkbox" id="termination2" value="No"> No</label>
-
-                        </div>
-                        <label>Information about Parents:</label>
-                        <div class="form-group">
-                            <label for="parentsms">Parent's Marital Status</label>
-                            <select class="form-control" id="parentsms" name="parentsms" placeholder="Enter marital status">
-                                <option>unmarried</option>
-                                <option>married</option>
-                                <option>separated</option>
-                                <option>divorced</option>
-                                <option>widow</option>
-                            </select>
-                        </div>
-                         <div class="form-group">
-                            <label for="address">Father's Name</label>
-                            <input type="text" class="form-control" id="fathername" name="fathername" placeholder='Enter your fathers first and last name' required/>
-                        </div>
-                         <div class="form-group">
-                            <label for="address">Father's age</label>
-                            <input type="text" class="form-control" id="fatherage" name="fatherage" placeholder='Enter your fathers age' required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Phone</label>
-                            <input type="text" class="form-control" id="Phone" name="Phone"  required/>
-                        </div>
-       
-                </div>
-            <% for(var i=0; i < scholarships.length; i++) { %>
             <div class="panel panel-default" style="border-radius: 0px">
                 <div class="panel panel-heading">
                     <div class="panel-title">
-                        <strong>
-                            <%= scholarships[i].name %>
-                        </strong>
+                        <h2>Donate Generously.</h2>
+                        <p>Use the form below donate to our chairty</p>
                     </div>
-                
                 </div>
-
                 <div class="panel panel-body">
-                    <div id="scholarship_id" style="display:none"><%= scholarships[i].scholarship_id%></div>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <tr>
-                                <td><strong>Prerequisite</strong></td>
-                                <td> <%= scholarships[i].prerequisite %></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Type</strong></td>
-                                <td> <%= scholarships[i].type %></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Amount</strong></td>
-                                <td> $<%= scholarships[i].amount %></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Expires</strong> </td>
-                                <td> <%= scholarships[i].expiry %></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" onclick="applyScholarship(this)" class="btn btn-primary">Apply</button>
-                    </div>
-                </div>
-            </div>
-            <% } %>
-        </div>
+                       <form action="/adddonation" method="post">
 
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="name" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email ID</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" pattern='\d{3}[\-]\d{3}[\-]\d{4}' placeholder='Phone Number (Format: xxx-xxx-xxxx)' required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="value">Value</label>
+                            <input type="text" class="form-control" id="value" name="value"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="text" class="form-control" id="quantity" name="quantity"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contribution_type">Contribution Type</label>
+                            <input type="text" class="form-control" id="contribution_type" name="contribution_type"/>
+
+                        </div>
+
+           
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
     </div>
 </div>
 <div class="container-fluid navbar-bottom">
@@ -298,10 +257,10 @@
                     </p>
                 </a>
             </div>
-          
+           
         </div>
         <div class="col-md-4">
-           
+            
             <div class="row" style="padding-bottom:30px">
                 <a href="/revenues">
                     <p class="text-center">
@@ -319,7 +278,6 @@
         </div>
     </div>
 </div>
-
 <div id="signinModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -347,13 +305,11 @@
 
     </div>
 </div>
-
 <!-- Javascript -->
 
 <script src="lib/jquery/dist/jquery.min.js"></script>
-<script src="index/index.js"></script>
-<script src="applyscholarship/applyscholarship.js"></script>
 <script src="lib/alertifyjs/alertify.min.js"></script>
+<script src="signup/signup.js"></script>
 
 <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/js/jquery.backstretch.min.js"></script>
