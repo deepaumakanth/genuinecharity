@@ -81,10 +81,14 @@ exports.applyscholarship = function(req, res){
             parent_marital_status = req.body.parent_marital_status,
             father_name = req.body.father_name,
             father_age = req.body.father_age,
-            phone = req.body.phone
+            phone = req.body.phone,
+            mother_name = req.body.mother_name,
+            mother_age = req.body.mother_age,
+            hollowyear = req.body.hollowyear,
+            activities = req.body.activities
 
-        var query = "insert into user_applies_scholarship (email_id, scholarship_id,no_of_children,school_termination,parent_marital_status,father_name,father_age,phone) values (:email_id, :scholarship_id, :no_of_children, :school_termination, :parent_marital_status, :father_name, :father_age, :phone)";
-        sequelize.query(query, { replacements: {email_id: email_id,scholarship_id: scholarship_id,no_of_children: no_of_children,school_termination: school_termination, parent_marital_status: parent_marital_status, father_name:father_name, father_age: father_age, phone: phone }})
+        var query = "insert into user_applies_scholarship (email_id, scholarship_id,no_of_children,school_termination,parent_marital_status,father_name,father_age,phone,mother_name,mother_age,hollowyear,activities) values (:email_id, :scholarship_id, :no_of_children, :school_termination, :parent_marital_status, :father_name, :father_age, :phone, :mother_name, :mother_age,:hollowyear,:activities)";
+        sequelize.query(query, { replacements: {email_id: email_id,scholarship_id: scholarship_id,no_of_children: no_of_children,school_termination: school_termination, parent_marital_status: parent_marital_status, father_name:father_name, father_age: father_age, phone: phone ,mother_name: mother_name,mother_age: mother_age,hollowyear:hollowyear,activities:activities}})
             .then(function(success) {
                 console.log("apply scholarship successful"+JSON.stringify(success));
 

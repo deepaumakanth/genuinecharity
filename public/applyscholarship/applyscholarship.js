@@ -24,7 +24,12 @@ function applyScholarship(){
             parent_marital_status:$('#applyModal').find('#parentsms').val(),
             father_name:$('#applyModal').find('#fathername').val(),
             father_age:Number($('#applyModal').find('#fatherage').val()),
-            phone:Number($('#applyModal').find('#phone').val())
+            phone:Number($('#applyModal').find('#phone').val()),
+            mother_name:$('#applyModal').find('#mothername').val(),
+            mother_age:$('#applyModal').find('#motherage').val(),
+            hollowyear:$('#applyModal').find('#hollowyear').val(),
+            activities:$('#applyModal').find('#activities').val()
+
         },
         success: function(data){
             console.log("Apply scholarship successful");
