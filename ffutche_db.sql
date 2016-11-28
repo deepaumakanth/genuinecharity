@@ -200,6 +200,15 @@ CREATE TABLE `user_applies_scholarship` (
   `mother_age` int(11) DEFAULT NULL,
   `hollowyear` varchar(4) DEFAULT NULL,
   `activities` varchar(45) DEFAULT NULL,
+  `education` varchar(45) DEFAULT NULL,
+  `year` varchar(4) DEFAULT NULL,
+  `school` varchar(30) DEFAULT NULL,
+  `city` varchar(10) DEFAULT NULL,
+  `country` varchar(10) DEFAULT NULL,
+  `class` varchar(10) DEFAULT NULL,
+  `grade` varchar(2) DEFAULT NULL,
+  `rank` varchar(4) DEFAULT NULL,
+  `degree` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`email_id`,`scholarship_id`),
   KEY `fk_user_applies_scholarship2` (`scholarship_id`),
   CONSTRAINT `fk_user_applies_scholarship1` FOREIGN KEY (`email_id`) REFERENCES `users` (`email_id`),
@@ -213,7 +222,7 @@ CREATE TABLE `user_applies_scholarship` (
 
 LOCK TABLES `user_applies_scholarship` WRITE;
 /*!40000 ALTER TABLE `user_applies_scholarship` DISABLE KEYS */;
-INSERT INTO `user_applies_scholarship` VALUES ('dumakan1@asu.edu',1,3,'No','married','DAd',45,0,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',2,4,'No','married','Dad',55,2147483647,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',3,2,'Yes','married','dad',55,131313,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',4,4,'Yes','married','dad',66,1234567890,'mom',66,NULL,NULL),('dumakan1@asu.edu',5,5,'Yes','married','Doctor',66,1234567890,'mother',66,'2012','working'),('test2@t.com',1,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',1,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',2,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',5,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',6,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',7,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',8,4,'No','unmarried','abc',23,123,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',9,4,'No','unmarried','abc',21,123,NULL,NULL,NULL,NULL);
+INSERT INTO `user_applies_scholarship` VALUES ('dumakan1@asu.edu',1,3,'No','married','DAd',45,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',2,4,'No','married','Dad',55,2147483647,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',3,2,'Yes','married','dad',55,131313,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',4,4,'Yes','married','dad',66,1234567890,'mom',66,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',5,5,'Yes','married','Doctor',66,1234567890,'mother',66,'2012','working',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',6,5,'Yes','unmarried','',0,0,'',0,'2010','work',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('merlin@asu.edu',14,4,'Yes','married','Mr',67,1234567890,'Ms',89,'2012','working','University','2015','ASU','AZ','USA',NULL,'1','1','Masters'),('test2@t.com',1,0,'','','',0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',1,0,'','','',0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',2,0,'','','',0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',5,0,'','','',0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',6,0,'','','',0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',7,0,'','','',0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',8,4,'No','unmarried','abc',23,123,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',9,4,'No','unmarried','abc',21,123,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user_applies_scholarship` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -298,7 +307,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('','sf','saf','safd','123-456-7893','male','unmarried','','sadf','sarin'),('abc@abc.com','asdf','abcd','asdf','123-456-7893','male','unmarried','','asdf','pass'),('check2@check.com','check','check','check','123-456-7893','male','unmarried','','check','check'),('check3@check.com','check','check','c','123-456-7893','female','unmarried','','check','sarin'),('check4@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check5@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check6@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check7@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check9@check.com','check','check','check','123-456-7893','male','unmarried','','check','check'),('check@check.com','check','last','check','123-456-7893','female','married','','check ','check'),('dumakan1@asu.edu','Deepa','umakanth','12 E lemon st','123-456-7898','female','unmarried','','Doctor','password'),('test2@t.com','Test1','test2','ff','','male','unmarried','','','test'),('vipul.sarin@gmail.com','Vipul','Sarin','914 East Lemon Street','123-456-7893','male','unmarried','','Student','sarin');
+INSERT INTO `users` VALUES ('','sf','saf','safd','123-456-7893','male','unmarried','','sadf','sarin'),('abc@abc.com','asdf','abcd','asdf','123-456-7893','male','unmarried','','asdf','pass'),('check2@check.com','check','check','check','123-456-7893','male','unmarried','','check','check'),('check3@check.com','check','check','c','123-456-7893','female','unmarried','','check','sarin'),('check4@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check5@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check6@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check7@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check9@check.com','check','check','check','123-456-7893','male','unmarried','','check','check'),('check@check.com','check','last','check','123-456-7893','female','married','','check ','check'),('dumakan1@asu.edu','Deepa','umakanth','12 E lemon st','123-456-7898','female','unmarried','','Doctor','password'),('merlin@asu.edu','Merlin','Do little','2333 test','123-345-4563','female','unmarried','','teacher','merlin'),('merly@asu.edu','merlin','merlin','2711 test','123-456-7890','female','unmarried','','teacher','merlin'),('test2@t.com','Test1','test2','ff','','male','unmarried','','','test'),('vipul.sarin@gmail.com','Vipul','Sarin','914 East Lemon Street','123-456-7893','male','unmarried','','Student','sarin');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -311,4 +320,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-27 22:42:43
+-- Dump completed on 2016-11-28  0:48:10
