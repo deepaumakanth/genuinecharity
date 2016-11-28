@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `ffutche` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `ffutche`;
--- MySQL dump 10.13  Distrib 5.7.12, for osx10.9 (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
 --
--- Host: 127.0.0.1    Database: ffutche
+-- Host: localhost    Database: ffutche
 -- ------------------------------------------------------
--- Server version	5.6.34
+-- Server version	5.5.47-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,6 +14,14 @@ USE `ffutche`;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `ffutche`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `ffutche` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `ffutche`;
 
 --
 -- Table structure for table `contributions`
@@ -167,7 +173,7 @@ CREATE TABLE `scholarships` (
   `expiry` datetime NOT NULL,
   `type` varchar(255) NOT NULL,
   PRIMARY KEY (`scholarship_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +182,7 @@ CREATE TABLE `scholarships` (
 
 LOCK TABLES `scholarships` WRITE;
 /*!40000 ALTER TABLE `scholarships` DISABLE KEYS */;
-INSERT INTO `scholarships` VALUES (1,'scholarship1',30000,'graduate','2017-07-28 00:00:00','college'),(2,'scholarship2',40000,'high school graduate','2017-09-12 00:00:00','high school'),(3,'scholarship3',20000,'middle school graduate','2017-02-12 00:00:00','middle school'),(4,'scholarship4',25000,'College Graduate','2017-06-13 00:00:00','Graduate'),(5,'scholarship5',30000,'High school graduate','2016-12-28 00:00:00','High School'),(6,'scholarship6',35000,'High school graduate','2016-12-28 00:00:00','High School'),(7,'scholarship7',35000,'High school graduate','2016-12-28 00:00:00','High School'),(8,'scholarship8',21000,'Middle School graduate','2017-01-25 00:00:00','Elementry School'),(9,'ift540 funds',5000,'shoud have work experience','2020-12-12 00:00:00','Graduate'),(10,'scholarship10',12000,'prereq','2016-11-30 00:00:00','Elementry School'),(11,'scholarship11',25000,'none','2016-12-21 00:00:00','Elementry School'),(12,'scholarship12',28000,'none','2017-01-25 00:00:00','Elementry School'),(13,'scholarship13',24000,'none','2016-12-29 00:00:00','Elementry School'),(14,'Ffutche Elementary funding',1245,'GRaduate programs','2020-12-12 00:00:00','Graduate');
+INSERT INTO `scholarships` VALUES (1,'scholarship1',30000,'graduate','2017-07-28 00:00:00','college'),(2,'scholarship2',40000,'high school graduate','2017-09-12 00:00:00','high school'),(3,'scholarship3',20000,'middle school graduate','2017-02-12 00:00:00','middle school'),(4,'scholarship4',25000,'College Graduate','2017-06-13 00:00:00','Graduate'),(5,'scholarship5',30000,'High school graduate','2016-12-28 00:00:00','High School'),(6,'scholarship6',35000,'High school graduate','2016-12-28 00:00:00','High School'),(7,'scholarship7',35000,'High school graduate','2016-12-28 00:00:00','High School'),(8,'scholarship8',21000,'Middle School graduate','2017-01-25 00:00:00','Elementry School'),(9,'ift540 funds',5000,'shoud have work experience','2020-12-12 00:00:00','Graduate'),(10,'scholarship10',12000,'prereq','2016-11-30 00:00:00','Elementry School'),(11,'scholarship11',25000,'none','2016-12-21 00:00:00','Elementry School'),(12,'scholarship12',28000,'none','2017-01-25 00:00:00','Elementry School'),(13,'scholarship13',24000,'none','2016-12-29 00:00:00','Elementry School');
 /*!40000 ALTER TABLE `scholarships` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,13 +199,9 @@ CREATE TABLE `user_applies_scholarship` (
   `no_of_children` int(11) NOT NULL,
   `school_termination` varchar(255) NOT NULL,
   `parent_marital_status` varchar(255) NOT NULL,
-  `father_name` varchar(255) DEFAULT NULL,
-  `father_age` int(11) DEFAULT NULL,
-  `phone` int(11) DEFAULT NULL,
-  `mother_name` varchar(45) DEFAULT NULL,
-  `mother_age` int(11) DEFAULT NULL,
-  `hollowyear` varchar(4) DEFAULT NULL,
-  `activities` varchar(45) DEFAULT NULL,
+  `father_name` varchar(255) NOT NULL,
+  `father_age` int(11) NOT NULL,
+  `phone` int(11) NOT NULL,
   PRIMARY KEY (`email_id`,`scholarship_id`),
   KEY `fk_user_applies_scholarship2` (`scholarship_id`),
   CONSTRAINT `fk_user_applies_scholarship1` FOREIGN KEY (`email_id`) REFERENCES `users` (`email_id`),
@@ -213,7 +215,7 @@ CREATE TABLE `user_applies_scholarship` (
 
 LOCK TABLES `user_applies_scholarship` WRITE;
 /*!40000 ALTER TABLE `user_applies_scholarship` DISABLE KEYS */;
-INSERT INTO `user_applies_scholarship` VALUES ('dumakan1@asu.edu',1,3,'No','married','DAd',45,0,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',2,4,'No','married','Dad',55,2147483647,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',3,2,'Yes','married','dad',55,131313,NULL,NULL,NULL,NULL),('dumakan1@asu.edu',4,4,'Yes','married','dad',66,1234567890,'mom',66,NULL,NULL),('dumakan1@asu.edu',5,5,'Yes','married','Doctor',66,1234567890,'mother',66,'2012','working'),('test2@t.com',1,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',1,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',2,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',5,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',6,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',7,0,'','','',0,0,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',8,4,'No','unmarried','abc',23,123,NULL,NULL,NULL,NULL),('vipul.sarin@gmail.com',9,4,'No','unmarried','abc',21,123,NULL,NULL,NULL,NULL);
+INSERT INTO `user_applies_scholarship` VALUES ('test2@t.com',1,0,'','','',0,0),('vipul.sarin@gmail.com',1,0,'','','',0,0),('vipul.sarin@gmail.com',2,0,'','','',0,0),('vipul.sarin@gmail.com',5,0,'','','',0,0),('vipul.sarin@gmail.com',6,0,'','','',0,0),('vipul.sarin@gmail.com',7,0,'','','',0,0),('vipul.sarin@gmail.com',8,4,'No','unmarried','abc',23,123),('vipul.sarin@gmail.com',9,4,'No','unmarried','abc',21,123);
 /*!40000 ALTER TABLE `user_applies_scholarship` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,7 +268,7 @@ CREATE TABLE `user_sponsors_scholarship` (
 
 LOCK TABLES `user_sponsors_scholarship` WRITE;
 /*!40000 ALTER TABLE `user_sponsors_scholarship` DISABLE KEYS */;
-INSERT INTO `user_sponsors_scholarship` VALUES ('vipul.sarin@gmail.com',8),('test2@t.com',9),('vipul.sarin@gmail.com',10),('vipul.sarin@gmail.com',11),('vipul.sarin@gmail.com',12),('vipul.sarin@gmail.com',13),('dumakan1@asu.edu',14);
+INSERT INTO `user_sponsors_scholarship` VALUES ('vipul.sarin@gmail.com',8),('test2@t.com',9),('vipul.sarin@gmail.com',10),('vipul.sarin@gmail.com',11),('vipul.sarin@gmail.com',12),('vipul.sarin@gmail.com',13);
 /*!40000 ALTER TABLE `user_sponsors_scholarship` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -298,7 +300,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('','sf','saf','safd','123-456-7893','male','unmarried','','sadf','sarin'),('abc@abc.com','asdf','abcd','asdf','123-456-7893','male','unmarried','','asdf','pass'),('check2@check.com','check','check','check','123-456-7893','male','unmarried','','check','check'),('check3@check.com','check','check','c','123-456-7893','female','unmarried','','check','sarin'),('check4@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check5@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check6@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check7@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check9@check.com','check','check','check','123-456-7893','male','unmarried','','check','check'),('check@check.com','check','last','check','123-456-7893','female','married','','check ','check'),('dumakan1@asu.edu','Deepa','umakanth','12 E lemon st','123-456-7898','female','unmarried','','Doctor','password'),('test2@t.com','Test1','test2','ff','','male','unmarried','','','test'),('vipul.sarin@gmail.com','Vipul','Sarin','914 East Lemon Street','123-456-7893','male','unmarried','','Student','sarin');
+INSERT INTO `users` VALUES ('','sf','saf','safd','123-456-7893','male','unmarried','','sadf','sarin'),('abc@abc.com','asdf','abcd','asdf','123-456-7893','male','unmarried','','asdf','pass'),('check2@check.com','check','check','check','123-456-7893','male','unmarried','','check','check'),('check3@check.com','check','check','c','123-456-7893','female','unmarried','','check','sarin'),('check4@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check5@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check6@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check7@check.com','check','check','check','123-456-7893','male','unmarried','','check','sarin'),('check9@check.com','check','check','check','123-456-7893','male','unmarried','','check','check'),('check@check.com','check','last','check','123-456-7893','female','married','','check ','check'),('test2@t.com','Test1','test2','ff','','male','unmarried','','','test'),('vipul.sarin@gmail.com','Vipul','Sarin','914 East Lemon Street','123-456-7893','male','unmarried','','Student','sarin');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -311,4 +313,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-27 22:42:43
+-- Dump completed on 2016-11-27 13:20:24
