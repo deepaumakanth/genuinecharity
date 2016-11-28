@@ -85,10 +85,19 @@ exports.applyscholarship = function(req, res){
             mother_name = req.body.mother_name,
             mother_age = req.body.mother_age,
             hollowyear = req.body.hollowyear,
-            activities = req.body.activities
+            activities = req.body.activities,
+            education = req.body.education,
+            year = req.body.year,
+            school =req.body.school,
+            city = req.body.city,
+            country = req.body.country,
+            edclass = req.body.edclass,
+            grade = req.body.grade,
+            rank = req.body.rank,
+            degree = req.body.degree
 
-        var query = "insert into user_applies_scholarship (email_id, scholarship_id,no_of_children,school_termination,parent_marital_status,father_name,father_age,phone,mother_name,mother_age,hollowyear,activities) values (:email_id, :scholarship_id, :no_of_children, :school_termination, :parent_marital_status, :father_name, :father_age, :phone, :mother_name, :mother_age,:hollowyear,:activities)";
-        sequelize.query(query, { replacements: {email_id: email_id,scholarship_id: scholarship_id,no_of_children: no_of_children,school_termination: school_termination, parent_marital_status: parent_marital_status, father_name:father_name, father_age: father_age, phone: phone ,mother_name: mother_name,mother_age: mother_age,hollowyear:hollowyear,activities:activities}})
+        var query = "insert into user_applies_scholarship (email_id, scholarship_id,no_of_children,school_termination,parent_marital_status,father_name,father_age,phone,mother_name,mother_age,hollowyear,activities,education,year,school,city,country,grade,rank,degree) values (:email_id, :scholarship_id, :no_of_children, :school_termination, :parent_marital_status, :father_name, :father_age, :phone, :mother_name, :mother_age, :hollowyear, :activities, :education, :year, :school, :city, :country, :grade, :rank, :degree)";
+        sequelize.query(query, { replacements: {email_id: email_id,scholarship_id: scholarship_id,no_of_children: no_of_children,school_termination: school_termination, parent_marital_status: parent_marital_status, father_name:father_name, father_age: father_age, phone: phone ,mother_name: mother_name,mother_age: mother_age,hollowyear: hollowyear,activities: activities,education: education,year: year,school: school,city: city,country: country,grade: grade,rank: rank,degree: degree}})
             .then(function(success) {
                 console.log("apply scholarship successful"+JSON.stringify(success));
 

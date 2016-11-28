@@ -28,8 +28,15 @@ function applyScholarship(){
             mother_name:$('#applyModal').find('#mothername').val(),
             mother_age:$('#applyModal').find('#motherage').val(),
             hollowyear:$('#applyModal').find('#hollowyear').val(),
-            activities:$('#applyModal').find('#activities').val()
-
+            activities:$('#applyModal').find('#activities').val(),
+            education:$('#applyModal').find('#education').val(),
+            year:$('#applyModal').find('#edyear').val(),
+            school:$('#applyModal').find('#edschool').val(),
+            city:$('#applyModal').find('#edcity').val(),
+            country:$('#applyModal').find('#edcountry').val(),
+            grade:$('#applyModal').find('#edgrade').val(),
+            rank:$('#applyModal').find('#edrank').val(),
+            degree:$('#applyModal').find('#eddegree').val()
         },
         success: function(data){
             console.log("Apply scholarship successful");
