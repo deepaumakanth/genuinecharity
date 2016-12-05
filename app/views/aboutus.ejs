@@ -45,7 +45,7 @@
                     <div class="col-md-3">
                         <a href="#"><img src="/img/ffutche_logo.jpg" style="height:150px; width:350px"></a>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-offset-1 col-md-8">
                         <div class="row">
                             <div class="col-md-3">
                                 <a href="/ourwork">
@@ -80,13 +80,14 @@
                             <div class="col-md-offset-2 col-md-4">
                                 <h1 class="text-primary"><b>Impacting Lives</b></h1>
                             </div>
-                            <div class="col-md-3 col-md-offset-1" style="padding-top:10px">
-                                 <a href="/donate">
-                                <button type="button" class="btn btn-info btn-lg">Donate</button>
+                            <div class="col-md-2 col-md-offset-4" style="padding-top:10px">
+                                <a href="/donate">
+                                    <button type="button" class="btn btn-info btn-lg">Donate</button>
+                                </a>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <% if ( userFirstName ) { %>
                                 <p class="text-center" style="color:#19b9e7">Hello <%= userFirstName %> <%= userLastName %> !</p>
                                 <% } else { %>
@@ -97,7 +98,7 @@
                                 </a>
                                 <% } %>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <% if ( userFirstName ) { %>
                                 <a href="/signout">
                                     <p class="text-center">
@@ -112,13 +113,8 @@
                                 </a>
                                 <% } %>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <input type="text">
-
-                                </div>
-                            </div>
-                            <div class="col-md-2">
+                            <div class="col-md-4 text-center">
+                                <input type="text">
                                 <button type="button" class="btn btn-info">Search</button>
                             </div>
                         </div>
