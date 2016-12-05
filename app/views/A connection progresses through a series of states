@@ -1,0 +1,38 @@
+A connection progresses through a series of states during its
+  lifetime.  The states are:  LISTEN, SYN-SENT, SYN-RECEIVED,
+  ESTABLISHED, FIN-WAIT-1, FIN-WAIT-2, CLOSE-WAIT, CLOSING, LAST-ACK,
+  TIME-WAIT, and the fictional state CLOSED.  CLOSED is fictional
+  because it represents the state when there is no TCB, and therefore,
+  no connection.  Briefly the meanings of the states are:
+
+    LISTEN - represents waiting for a connection request from any remote
+    TCP and port.
+
+    SYN-SENT - represents waiting for a matching connection request
+    after having sent a connection request.
+
+    SYN-RECEIVED - represents waiting for a confirming connection
+    request acknowledgment after having both received and sent a
+    connection request.
+
+    ESTABLISHED - represents an open connection, data received can be
+    delivered to the user.  The normal state for the data transfer phase
+    of the connection.
+
+    FIN-WAIT-1 - represents waiting for a connection termination request
+    from the remote TCP, or an acknowledgment of the connection
+    termination request previously sent.
+
+    FIN-WAIT-2 - represents waiting for a connection termination request
+    from the remote TCP.
+
+    CLOSE-WAIT - represents waiting for a connection termination request
+    from the local user.
+
+    CLOSING - represents waiting for a connection termination request
+    acknowledgment from the remote TCP.
+
+    LAST-ACK - represents waiting for an acknowledgment of the
+    connection termination request previously sent to the remote TCP
+    (which includes an acknowledgment of its connection termination
+    request).
